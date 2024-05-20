@@ -14,7 +14,7 @@ server {
 
     location /docs {
         autoindex on;
-        alias /home/mansuf/openapi;
+        alias /etc/openapi;
         try_files $uri $uri/ =404;
     }
 
