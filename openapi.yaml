@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: CC API
+  description: API for creating bridge between ML (Machine Learning) and MD (Mobile Development) team
+  version: 0.0.1
+servers:
+  - url: https://api.bangkit-c241-ps005.site/
+paths:
+  /users:
+    get:
+      summary: Get a list of users
+      description: Retrieves a list of all users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+                      format: email
