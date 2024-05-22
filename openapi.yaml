@@ -9,7 +9,7 @@ paths:
   /auth/login:
     post:
       summary: Login
-      description: Authenticate using username and password
+      description: Authenticate using email and password
       requestBody:
         content:
           application/json:
@@ -27,6 +27,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiClientLoginResponse'
+  /auth/register:
+    post:
+      summary: Register
+      description: Register using email and password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: ok
 components:
   schemas:
     ApiClientLoginData:
