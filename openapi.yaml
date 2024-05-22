@@ -1,4 +1,6 @@
 openapi: 3.0.0
+tags:
+  - name: Authentication
 info:
   title: CC API
   description: API for creating bridge between ML (Machine Learning) and MD (Mobile Development) team
@@ -9,6 +11,8 @@ paths:
   /auth/login:
     post:
       summary: Login
+      tags:
+        - Authentication
       description: Authenticate using email and password
       requestBody:
         content:
@@ -31,6 +35,8 @@ paths:
   /auth/register:
     post:
       summary: Register
+      tags:
+        - Authentication
       description: Register using email and password
       requestBody:
         content:
