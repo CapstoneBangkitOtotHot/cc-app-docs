@@ -27,6 +27,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiClientLoginResponse'
+      security: []
   /auth/register:
     post:
       summary: Register
@@ -51,6 +52,7 @@ paths:
                   status:
                     type: string
                     default: ok
+      security: []
 components:
   schemas:
     ApiClientLoginData:
