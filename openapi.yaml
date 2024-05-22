@@ -6,24 +6,33 @@ info:
 servers:
   - url: https://api.bangkit-c241-ps005.site/
 paths:
-  /users:
-    get:
-      summary: Get a list of users
-      description: Retrieves a list of all users
+  /auth/login:
+    post:
+      summary: Login
+      description: Authenticate using username and password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
       responses:
         '200':
-          description: A list of users
+          description: Return JWT token to authenticate 
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: ok
+                  data:
+                    type: string
                   properties:
-                    id:
-                      type: integer
-                    name:
+                    session_token:
                       type: string
-                    email:
-                      type: string
-                      format: email
