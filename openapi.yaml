@@ -33,6 +33,7 @@ paths:
                     default: ok
                   data:
                     type: string
-                  properties:
-                    session_token:
+                    schema:
                       type: string
+                        session_token:
+                          type: string
