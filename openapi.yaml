@@ -44,3 +44,9 @@ components:
           default: ok
         data:
           $ref: '#/components/schemas/ApiClientLoginData'
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+security:
+  - Bearer: []
