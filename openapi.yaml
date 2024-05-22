@@ -26,15 +26,21 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                    default: ok
-                  data:
-                    type: string
-                  schema:
-                    type: string
-                    properties:
-                      session_token:
-                        type: string
+                $ref: '#/components/schemas/ApiClientLoginResponse'
+components:
+  schemas:
+    ApiClientLoginData:
+      title: ApiClientLoginData
+      type: object
+      properties:
+        session_token:
+          type: string
+    ApiClientLoginResponse:
+      title: ApiClientLoginResponse
+      type: object
+      properties:
+        status:
+          type: string
+          default: ok
+        data:
+          $ref: '#/components/schemas/ApiClientLoginData'
