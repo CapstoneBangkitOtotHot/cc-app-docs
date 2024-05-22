@@ -35,5 +35,6 @@ paths:
                     type: string
                     schema:
                       type: string
+                      properties:
                         session_token:
                           type: string
