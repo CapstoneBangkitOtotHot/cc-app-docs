@@ -9,7 +9,7 @@ servers:
   - url: https://api.bangkit-c241-ps005.site/
 paths:
   /auth/login:
-    post:
+    get:
       summary: Login
       tags:
         - Authentication
@@ -33,7 +33,7 @@ paths:
                 $ref: '#/components/schemas/ApiClientLoginResponse'
       security: []
   /auth/register:
-    post:
+    get:
       summary: Register
       tags:
         - Authentication
