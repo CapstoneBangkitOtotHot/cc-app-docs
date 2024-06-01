@@ -58,6 +58,62 @@ paths:
                   status:
                     type: string
                     default: ok
+  /auth/send-reset-password-email:
+    post:
+      summary: Reset password using email
+      tags:
+        - Authentication
+      description: Send reset password link with email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: ok
+                  message:
+                    type: string
+                    default: Password reset email sent
+  /auth/reset-password:
+    post:
+      summary: Reset password using oobCode (private)
+      tags:
+        - Authentication
+      description: Send reset password link with oobCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                oobCode:
+                  type: string
+                newPassword:
+                  type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: ok
+                  message:
+                    type: string
+                    default: Password has been reset
       security: []
 components:
   schemas:
