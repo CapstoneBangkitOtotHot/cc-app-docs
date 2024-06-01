@@ -31,7 +31,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiClientLoginResponse'
-      security: []
+  /auth/refresh:
+    post:
+      summary: Refresh session token
+      tags:
+        - Authentication
+      description: Get new session and refresh tokens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refreshToken:
+                  type: string
+      responses:
+        '200':
+          description: Return JWT token to authenticate 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiClientLoginResponse'
+  /auth/logout:
+    post:
+      summary: Logout
+      tags:
+        - Authentication
+      description: Logout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+      responses:
+        '200':
+          description: Return JWT token to authenticate 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: ok
   /auth/register:
     post:
       summary: Register
@@ -122,6 +167,8 @@ components:
       type: object
       properties:
         session_token:
+          type: string
+        refresh_token:
           type: string
     ApiClientLoginResponse:
       title: ApiClientLoginResponse
